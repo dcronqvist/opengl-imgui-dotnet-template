@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <LibDlls Include="$(ProjectDir)\libs\win\**\*.*" />
+  </ItemGroup>
+
+  <Target Name="CopyLibDlls" AfterTargets="Build">
+    <Message Text="Copying dlls to output directory..." Importance="High" />
+
+    <Copy SourceFiles="@(LibDlls)" DestinationFolder="$(OutDir)" />
+  </Target>
+
+</Project>
