@@ -1,6 +1,6 @@
-# opengl-dotnet-template
+# opengl-imgui-dotnet-template
 
-🎨 template repo for getting started with opengl & glfw using dotnet!
+🎨 template repo for getting started with opengl & glfw (+ imgui!) using dotnet!
 
 ## Getting started
 
