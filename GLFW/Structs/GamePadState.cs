@@ -1,6 +1,6 @@
 using System.Runtime.InteropServices;
 
-namespace AGame.Engine.GLFW
+namespace opengl_dotnet_template.GLFW
 {
     /// <summary>
     ///     Represents the state of a gamepad.

@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using Microsoft.Win32.SafeHandles;
 
-namespace AGame.Engine.GLFW
+namespace opengl_dotnet_template.GLFW
 {
     /// <summary>
     ///     Provides a simplified interface for creating and using a GLFW window with properties, events, etc.

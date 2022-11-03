@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 
-namespace AGame.Engine.GLFW
+namespace opengl_dotnet_template.GLFW
 {
     /// <summary>
     ///     Arguments supplied with size changing events.

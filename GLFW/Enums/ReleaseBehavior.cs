@@ -1,4 +1,4 @@
-﻿namespace AGame.Engine.GLFW
+﻿namespace opengl_dotnet_template.GLFW
 {
     /// <summary>
     ///     Describes the release behavior to be used by the context.

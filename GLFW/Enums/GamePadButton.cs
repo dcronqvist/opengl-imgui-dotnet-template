@@ -1,6 +1,6 @@
 #pragma warning disable 1591
 
-namespace AGame.Engine.GLFW
+namespace opengl_dotnet_template.GLFW
 {
     /// <summary>
     ///     Represents gamepad buttons.

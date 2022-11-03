@@ -1,7 +1,7 @@
 using System;
 
 // ReSharper disable once CheckNamespace
-namespace AGame.Engine.GLFW.Game
+namespace opengl_dotnet_template.GLFW.Game
 {
     /// <inheritdoc cref="NativeWindow"/>
     [Obsolete("Use NativeWindow, GameWindow will be removed in future release.")]

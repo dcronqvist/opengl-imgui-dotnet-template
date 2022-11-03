@@ -2,7 +2,7 @@
 
 // TODO: Create Hint component
 
-namespace AGame.Engine.GLFW
+namespace opengl_dotnet_template.GLFW
 {
     /// <summary>
     ///     Strongly-typed values for setting window hints.

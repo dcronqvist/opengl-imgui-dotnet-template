@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AGame.Engine.GLFW
+namespace opengl_dotnet_template.GLFW
 {
     /// <summary>
     ///     Describes bitwise combination of modifier keys.

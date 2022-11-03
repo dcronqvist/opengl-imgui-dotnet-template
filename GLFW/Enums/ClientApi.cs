@@ -1,4 +1,4 @@
-﻿namespace AGame.Engine.GLFW
+﻿namespace opengl_dotnet_template.GLFW
 {
     /// <summary>
     ///     Strongly-typed description for possible client APIs to be used.

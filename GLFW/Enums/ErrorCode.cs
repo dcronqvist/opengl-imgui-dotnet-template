@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AGame.Engine.GLFW
+namespace opengl_dotnet_template.GLFW
 {
     /// <summary>
     ///     Strongly-typed error codes for error handling.

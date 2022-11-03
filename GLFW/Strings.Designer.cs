@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AGame.Engine.GLFW
+namespace opengl_dotnet_template.GLFW
 {
     using System;
 

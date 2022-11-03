@@ -1,6 +1,6 @@
 using System;
 
-namespace AGame.Engine.GLFW
+namespace opengl_dotnet_template.GLFW
 {
     /// <summary>
     ///     Arguments used when a window content scaling is changed.

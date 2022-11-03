@@ -1,4 +1,4 @@
-﻿namespace AGame.Engine.GLFW
+﻿namespace opengl_dotnet_template.GLFW
 {
     /// <summary>
     ///     Strongly-typed values indicating connection status of joysticks, monitors, etc.

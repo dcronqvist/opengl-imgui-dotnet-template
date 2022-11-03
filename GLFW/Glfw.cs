@@ -5,7 +5,7 @@ using System.Text;
 
 #pragma warning disable 0419
 
-namespace AGame.Engine.GLFW
+namespace opengl_dotnet_template.GLFW
 {
     /// <summary>
     ///     The base class the vast majority of the GLFW functions, excluding only Vulkan and native platform specific

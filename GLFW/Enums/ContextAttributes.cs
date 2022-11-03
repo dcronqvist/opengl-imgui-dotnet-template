@@ -1,4 +1,4 @@
-﻿namespace AGame.Engine.GLFW
+﻿namespace opengl_dotnet_template.GLFW
 {
     /// <summary>
     ///     Used internally to consolidate strongly-typed values for getting/setting window attributes.

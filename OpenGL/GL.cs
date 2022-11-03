@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 using System.Security;
 using System.Text;
 
-namespace AGame.Engine.OpenGL
+namespace opengl_dotnet_template.OpenGL
 {
     /// <summary>
     ///     Returns a function pointer for the OpenGL function with the specified name. 
