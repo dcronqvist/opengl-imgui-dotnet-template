@@ -1,7 +1,7 @@
 ﻿using System;
 using ImGuiNET;
-using opengl_dotnet_template.GLFW;
-using static opengl_dotnet_template.OpenGL.GL;
+using DotGLFW;
+using static DotGL.GL;
 
 namespace opengl_dotnet_template;
 
@@ -18,7 +18,7 @@ class Program
         // Set context creation hints
         PrepareContext();
         // Create a window and shader program
-        var window = CreateWindow(1024, 800);
+        var window = CreateWindow(1280, 720);
         var program = CreateProgram();
 
         // Define a simple triangle
@@ -29,13 +29,19 @@ class Program
         SetRandomColor(location);
         long n = 0;
 
-        var imguiController = new ImGuiController(window, 1024, 800);
+        var imguiController = new ImGuiController(window, 1280, 720);
+
+        Keyboard.Init(window);
+        Mouse.Init(window);
 
         while (!Glfw.WindowShouldClose(window))
         {
             // Swap fore/back framebuffers, and poll for operating system events.
             Glfw.SwapBuffers(window);
             Glfw.PollEvents();
+
+            Keyboard.Begin(window);
+            Mouse.Begin(window);
 
             // Clear the framebuffer to defined background color
             glClear(GL_COLOR_BUFFER_BIT);
@@ -53,6 +59,8 @@ class Program
 
             imguiController.Render();
 
+            Keyboard.End();
+            Mouse.End();
         }
 
         Glfw.Terminate();
@@ -68,12 +76,14 @@ class Program
 
     private static void PrepareContext()
     {
+        Glfw.Init();
+
         // Set some common hints for the OpenGL profile creation
-        Glfw.WindowHint(Hint.ClientApi, ClientApi.OpenGL);
+        Glfw.WindowHint(Hint.ClientAPI, ClientAPI.OpenGLAPI);
         Glfw.WindowHint(Hint.ContextVersionMajor, 3);
         Glfw.WindowHint(Hint.ContextVersionMinor, 3);
-        Glfw.WindowHint(Hint.OpenglProfile, Profile.Core);
-        Glfw.WindowHint(Hint.Doublebuffer, true);
+        Glfw.WindowHint(Hint.OpenGLProfile, OpenGLProfile.CoreProfile);
+        Glfw.WindowHint(Hint.DoubleBuffer, true);
         Glfw.WindowHint(Hint.Decorated, true);
     }
 
@@ -86,18 +96,18 @@ class Program
     private static Window CreateWindow(int width, int height)
     {
         // Create window, make the OpenGL context current on the thread, and import graphics functions
-        var window = Glfw.CreateWindow(width, height, TITLE, opengl_dotnet_template.GLFW.Monitor.None, Window.None);
+        var window = Glfw.CreateWindow(width, height, TITLE, Monitor.NULL, Window.NULL);
 
         // Center window
-        var screen = Glfw.PrimaryMonitor.WorkArea;
-        var x = (screen.Width - width) / 2;
-        var y = (screen.Height - height) / 2;
-        Glfw.SetWindowPosition(window, x, y);
+        Monitor primaryMonitor = Glfw.GetPrimaryMonitor();
+        Glfw.GetMonitorWorkarea(primaryMonitor, out var _, out var _, out int ww, out int wh);
+
+        var x = (ww - width) / 2;
+        var y = (wh - height) / 2;
+        Glfw.SetWindowPos(window, x, y);
 
         Glfw.MakeContextCurrent(window);
         Import(Glfw.GetProcAddress);
-
-
 
         return window;
     }

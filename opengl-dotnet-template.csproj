@@ -2,33 +2,35 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
+    <TargetFramework>net7.0</TargetFramework>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
-
-  <PropertyGroup Condition=" '$(OS)' == 'WINDOWS_NT'">
-    <DefineConstants>_WINDOWS</DefineConstants>
-  </PropertyGroup>
-
-  <PropertyGroup Condition=" '$(OS)' == 'OSX'">
-    <DefineConstants>_OSX</DefineConstants>
-  </PropertyGroup>
-
-
-  <ItemGroup>
-    <LibDlls Include="$(ProjectDir)\libs\win\**\*.*" />
-  </ItemGroup>
 
 
   <ItemGroup>
     <PackageReference Include="ImGui.NET" Version="1.88.0" />
+    <PackageReference Include="DotGLFW" Version="1.0.1" />
   </ItemGroup>
 
-  <Target Name="CopyLibDlls" AfterTargets="Build">
-    <Message Text="Copying dlls to output directory..." Importance="High" />
+  <PropertyGroup>
+      <!-- GL.cs configuration options! -->
 
-    <Copy SourceFiles="@(LibDlls)" DestinationFolder="$(OutDir)" />
-  </Target>
+      <!-- Profile: CORE/COMPAT -->
+      <!-- COMPAT not implemented yet -->
+      <OpenGLProfile>CORE</OpenGLProfile>
+
+      <!-- Version: Any valid OpenGL version from 1.0-4.6 -->
+      <OpenGLVersionMajor>3</OpenGLVersionMajor>
+      <OpenGLVersionMinor>3</OpenGLVersionMinor>
+
+      <!-- Defining exposed wrapper API (SAFE/UNSAFE/BOTH) -->
+      <!-- SAFE: Only safe functions are exposed -->
+      <!-- UNSAFE: Only unsafe functions are exposed -->
+      <!-- BOTH: Both safe and unsafe functions are exposed -->
+      <OpenGLWrapperAPI>BOTH</OpenGLWrapperAPI>
+
+      <!-- Defining constants for compile time availability of APIs -->
+      <DefineConstants>$(DefineConstants);OGL_V_$(OpenGLVersionMajor)_$(OpenGLVersionMinor);OGL_P_$(OpenGLProfile);OGL_WRAPPER_API_$(OpenGLWrapperAPI)</DefineConstants>
+  </PropertyGroup>
 
 </Project>
